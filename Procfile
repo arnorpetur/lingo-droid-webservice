@@ -1,1 +1,1 @@
-web: java ratpack.groovy.GroovyRatpackMain
+web: build/install/lingo-droid-webservice/bin/lingo-droid-webservice build/install/lingo-droid-webservice/ratpack.groovy
