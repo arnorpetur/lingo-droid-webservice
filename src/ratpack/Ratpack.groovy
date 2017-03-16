@@ -13,7 +13,7 @@ import ratpack.service.StartEvent
 import static ratpack.groovy.Groovy.groovyMarkupTemplate
 import static ratpack.groovy.Groovy.ratpack
 
-final Logger logger = LoggerFactory.getLogger(ratpack.class);
+final Logger logger = LoggerFactory.getLogger(Ratpack.class);
 
 ratpack {
   bindings {
