@@ -1,1 +1,1 @@
-web: site/build/install/site/bin/site site/build/install/site/ratpack.groovy
+web: lingo-droid-webservice/build/install/lingo-droid-webservice/bin/lingo-droid-webservice lingo-droid-webservice/build/install/lingo-droid-webservice/ratpack.groovy
