@@ -18,7 +18,7 @@ html {
 
     section {
       h2 title
-      p 'This is the main page for your Ratpack app.'
+      p 'Lingo-droid webservice.'
     }
 
     footer {}
