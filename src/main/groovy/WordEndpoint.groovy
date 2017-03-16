@@ -22,8 +22,8 @@ class WordEndpoint extends GroovyChainAction {
               flatMap { input ->
                 wordService.insert(
                         input.get("icelandic").asText(),
-                        0l,
-                        0d
+                        input.get("english").asText(),
+                        input.get("difficulty")
                 )
               }.
               single().
