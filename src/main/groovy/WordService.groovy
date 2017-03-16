@@ -30,12 +30,7 @@ class WordService {
     }
 
     Observable<String> insert(String icelandic, String english, int difficulty) {
-        wordDbCommands.insert(icelandic, english, difficulty).
-                map {
-                    icelandic,
-                    english,
-                    difficulty
-                }
+        wordDbCommands.insert(icelandic, english, difficulty)
     }
 
     Observable<Word> find(String english) {
