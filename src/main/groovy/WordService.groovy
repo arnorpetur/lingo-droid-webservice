@@ -32,7 +32,9 @@ class WordService {
     Observable<String> insert(String icelandic, String english, int difficulty) {
         wordDbCommands.insert(icelandic, english, difficulty).
                 map {
-                    icelandic
+                    icelandic,
+                    english,
+                    difficulty
                 }
     }
 
