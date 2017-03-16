@@ -23,7 +23,7 @@ class WordEndpoint extends GroovyChainAction {
                 wordService.insert(
                         input.get("icelandic").asText(),
                         input.get("english").asText(),
-                        input.get("difficulty")
+                        input.get("difficulty").asInt()
                 )
               }.
               single().
