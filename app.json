@@ -1,0 +1,6 @@
+{
+  "name": "lingo-droid-webservice",
+  "description": "Web service supporting lingo-droid",
+  "repository": "https://github.com/arnorpetur/lingo-droid-webservice",
+  "addons": ["heroku-postgresql"]
+}
