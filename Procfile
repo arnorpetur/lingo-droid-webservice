@@ -1,1 +1,1 @@
-web: java -jar -Dport=$PORT build/libs/lingo-droid-webservice.jar
+web: site/build/install/site/bin/site site/build/install/site/ratpack.groovy
