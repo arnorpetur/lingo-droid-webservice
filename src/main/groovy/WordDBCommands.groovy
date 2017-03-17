@@ -60,14 +60,14 @@ class WordDbCommands {
         }.toObservable()
     }
 
-    rx.Observable<GroovyRowResult> find(final String english) {
+    rx.Observable<GroovyRowResult> find(final String icelandic) {
         return new HystrixObservableCommand<GroovyRowResult>(
                 HystrixObservableCommand.Setter.withGroupKey(hystrixCommandGroupKey).andCommandKey(HystrixCommandKey.Factory.asKey("find"))) {
 
             @Override
             protected rx.Observable<GroovyRowResult> construct() {
                 observe(Blocking.get {
-                    sql.firstRow("SELECT icelandic, difficulty FROM dictionary WHERE english = $english")
+                    sql.firstRow("SELECT english, difficulty FROM dictionary WHERE icelandic = $icelandic")
                 })
             }
 
