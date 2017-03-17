@@ -73,7 +73,7 @@ class WordDbCommands {
 
             @Override
             protected String getCacheKey() {
-                return "db-dingodb-find-$english"
+                return "db-dingodb-find-$icelandic"
             }
         }.toObservable()
     }
