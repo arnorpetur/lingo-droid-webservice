@@ -36,11 +36,11 @@ class WordService {
                 }
     }
 
-    Observable<Word> find(String english) {
+    Observable<Word> find(String icelandic) {
         wordDbCommands.find(icelandic).map { GroovyRowResult dbRow ->
             return new Word(
-                    dbrow.icelandic,
-                    english,
+                    icelandic,
+                    dbrowenglish,
                     dbRow.difficulty
             )
         }
