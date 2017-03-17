@@ -20,8 +20,8 @@ class UserDbCommands {
     }
 
     void createTables() {
-        sql.execute("DROP TABLE IF EXISTS user")
-        sql.execute("CREATE TABLE user ("+
+        sql.execute("DROP TABLE IF EXISTS userinfo")
+        sql.execute("CREATE TABLE userinfo ("+
             "id varchar(48), "+
             "username varchar(25), "+
             "score int, "+
@@ -36,7 +36,7 @@ class UserDbCommands {
             @Override
             protected rx.Observable<GroovyRowResult> construct() {
                 observeEach(Blocking.get {
-                    sql.rows("SELECT id, username, score FROM user")
+                    sql.rows("SELECT id, username, score FROM userinfo")
                 })
             }
 
@@ -54,7 +54,7 @@ class UserDbCommands {
             @Override
             protected rx.Observable<List<Object>> construct() {
                 observe(Blocking.get {
-                    sql.executeInsert("INSERT INTO user (id, username, score) VALUES ($id, $username, $score)")
+                    sql.executeInsert("INSERT INTO userinfo (id, username, score) VALUES ($id, $username, $score)")
                 })
             }
         }.toObservable()
@@ -67,7 +67,7 @@ class UserDbCommands {
             @Override
             protected rx.Observable<GroovyRowResult> construct() {
                 observe(Blocking.get {
-                    sql.firstRow("SELECT id, score FROM user WHERE id = $id")
+                    sql.firstRow("SELECT id, score FROM userinfo WHERE id = $id")
                 })
             }
 
@@ -98,7 +98,7 @@ class UserDbCommands {
             @Override
             protected rx.Observable<Integer> construct() {
                 observe(Blocking.get {
-                    sql.executeUpdate("DELETE FROM user WHERE id = $id")
+                    sql.executeUpdate("DELETE FROM userinfo WHERE id = $id")
                 })
             }
         }.toObservable()
