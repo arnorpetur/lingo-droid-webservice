@@ -78,19 +78,6 @@ class WordDbCommands {
         }.toObservable()
     }
 
-    /*rx.Observable<Void> update(final String isbn, final long quantity, final BigDecimal price) {
-        return new HystrixObservableCommand<Void>(
-                HystrixObservableCommand.Setter.withGroupKey(hystrixCommandGroupKey).andCommandKey(HystrixCommandKey.Factory.asKey("update"))) {
-
-            @Override
-            protected rx.Observable<Integer> construct() {
-                observe(Blocking.get {
-                    sql.executeUpdate("update books set quantity = $quantity, price = $price where isbn = $isbn")
-                })
-            }
-        }.toObservable()
-    }*/
-
     rx.Observable<Void> delete(final String icelandic) {
         return new HystrixObservableCommand<Void>(
                 HystrixObservableCommand.Setter.withGroupKey(hystrixCommandGroupKey).andCommandKey(HystrixCommandKey.Factory.asKey("delete"))) {

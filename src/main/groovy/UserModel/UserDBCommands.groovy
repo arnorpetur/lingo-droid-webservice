@@ -36,7 +36,7 @@ class UserDbCommands {
             @Override
             protected rx.Observable<GroovyRowResult> construct() {
                 observeEach(Blocking.get {
-                    sql.rows("SELECT id, username, score FROM userinfo")
+                    sql.rows("SELECT id, username, score FROM userinfo ORDER BY score DESC LIMIT 10")
                 })
             }
 
@@ -78,18 +78,18 @@ class UserDbCommands {
         }.toObservable()
     }
 
-    /*rx.Observable<Void> update(final String isbn, final long quantity, final BigDecimal price) {
+    rx.Observable<Void> update(final String id, final String userName, int score) {
         return new HystrixObservableCommand<Void>(
                 HystrixObservableCommand.Setter.withGroupKey(hystrixCommandGroupKey).andCommandKey(HystrixCommandKey.Factory.asKey("update"))) {
 
             @Override
             protected rx.Observable<Integer> construct() {
                 observe(Blocking.get {
-                    sql.executeUpdate("update books set quantity = $quantity, price = $price where isbn = $isbn")
+                    sql.executeUpdate("UPDATE userinfo SET username = $userName, score = $score WHERE id = $id")
                 })
             }
         }.toObservable()
-    }*/
+    }
 
     rx.Observable<Void> delete(final String id) {
         return new HystrixObservableCommand<Void>(
