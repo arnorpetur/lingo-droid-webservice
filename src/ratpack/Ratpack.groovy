@@ -24,6 +24,7 @@ ratpack {
     }
     module SqlModule
     module WordModule
+    module UserModule
     module new HystrixModule().sse()
 
     bindInstance Service, new Service() {
@@ -32,6 +33,8 @@ ratpack {
         logger.info "Initializing RX"
         RxRatpack.initialize()
         event.registry.get(WordService).createTable()
+        event.registry.get(UserService).createTable()
+
       }
     }
   }
@@ -53,4 +56,16 @@ ratpack {
 
     files { dir "public" }
   }
+
+  handlers { UserService userService ->
+    all RequestLogger.ncsa(logger)
+
+    prefix("users") {
+      all chain(registry.get(UserEndpoint))
+    }
+
+    files { dir "public" }
+  }
+
+
 }
