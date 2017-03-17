@@ -67,7 +67,7 @@ class UserDbCommands {
             @Override
             protected rx.Observable<GroovyRowResult> construct() {
                 observe(Blocking.get {
-                    sql.firstRow("SELECT id, score FROM userinfo WHERE id = $id")
+                    sql.firstRow("SELECT username, score FROM userinfo WHERE id = $id")
                 })
             }
 

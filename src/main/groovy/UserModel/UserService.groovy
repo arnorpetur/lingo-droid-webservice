@@ -22,26 +22,26 @@ class UserService {
     Observable<User> all() {
         userDbCommands.getAll().map { row ->
             new User(
-                    row.icelandic,
-                    row.english,
-                    row.difficulty
+                    row.id,
+                    row.userName,
+                    row.score
             )
         }
     }
 
-    Observable<String> insert(String icelandic, String english, int difficulty) {
-        userDbCommands.insert(icelandic, english, difficulty).
+    Observable<String> insert(String id, String userName, int score) {
+        userDbCommands.insert(id, userName, score).
                 map {
-                    icelandic
+                    id
                 }
     }
 
-    Observable<User> find(String icelandic) {
-        userDbCommands.find(icelandic).map { GroovyRowResult dbRow ->
+    Observable<User> find(String id) {
+        userDbCommands.find(id).map { GroovyRowResult dbRow ->
             return new User(
-                    icelandic,
-                    dbRow.english,
-                    dbRow.difficulty
+                    id,
+                    dbRow.userName,
+                    dbRow.score
             )
         }
     }
