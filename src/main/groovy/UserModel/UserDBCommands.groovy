@@ -54,7 +54,7 @@ class UserDbCommands {
             @Override
             protected rx.Observable<List<Object>> construct() {
                 observe(Blocking.get {
-                    sql.executeInsert("INSERT INTO userinfo (id, username, score) VALUES ($id, $username, $score)")
+                    sql.executeInsert("INSERT INTO userinfo (id, username, score) VALUES ($id, $userName, $score)")
                 })
             }
         }.toObservable()
