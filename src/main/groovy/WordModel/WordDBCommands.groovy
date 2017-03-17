@@ -20,13 +20,13 @@ class WordDbCommands {
     }
 
     void createTables() {
-        sql.execute("DROP TABLE IF EXISTS dictionary")
+        /*sql.execute("DROP TABLE IF EXISTS dictionary")
         sql.execute("CREATE TABLE dictionary ("+
             "icelandic varchar(25), "+
             "english varchar(25), "+
             "difficulty int, "+
             "CONSTRAINT dictionary_icelandic UNIQUE (icelandic)"+
-            ")")
+            ")")*/
     }
 
     rx.Observable<GroovyRowResult> getAll() {

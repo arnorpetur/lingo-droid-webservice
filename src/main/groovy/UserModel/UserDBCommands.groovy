@@ -20,13 +20,13 @@ class UserDbCommands {
     }
 
     void createTables() {
-        sql.execute("DROP TABLE IF EXISTS userinfo")
+        /*sql.execute("DROP TABLE IF EXISTS userinfo")
         sql.execute("CREATE TABLE userinfo ("+
             "id varchar(48), "+
             "username varchar(25), "+
             "score int, "+
             "CONSTRAINT user_username UNIQUE (username)"+
-            ")")
+            ")")*/
     }
 
     rx.Observable<GroovyRowResult> getAll() {
