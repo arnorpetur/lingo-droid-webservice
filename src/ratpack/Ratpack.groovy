@@ -39,7 +39,7 @@ ratpack {
     }
   }
 
-  handlers { WordService wordService ->
+  handlers { WordService wordService, UserService userService ->
     all RequestLogger.ncsa(logger)
 
     get {
@@ -55,17 +55,11 @@ ratpack {
     }
 
     files { dir "public" }
-  }
-
-  handlers { UserService userService ->
-    all RequestLogger.ncsa(logger)
 
     prefix("users") {
       all chain(registry.get(UserEndpoint))
     }
 
-    files { dir "public" }
   }
-
 
 }
