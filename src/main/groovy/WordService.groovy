@@ -40,7 +40,7 @@ class WordService {
         wordDbCommands.find(icelandic).map { GroovyRowResult dbRow ->
             return new Word(
                     icelandic,
-                    dbrowenglish,
+                    dbrow.english,
                     dbRow.difficulty
             )
         }
