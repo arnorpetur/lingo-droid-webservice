@@ -84,6 +84,7 @@ class WordDbCommands {
 
             @Override
             protected rx.Observable<Integer> construct() {
+                log.info("DBCommands")
                 observe(Blocking.get {
                     sql.executeUpdate("DELETE FROM dictionary WHERE icelandic = $icelandic")
                 })

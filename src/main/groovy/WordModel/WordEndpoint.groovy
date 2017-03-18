@@ -37,6 +37,7 @@ class WordEndpoint extends GroovyChainAction {
     }
 
     path(":icelandic"){
+      log.info("Endpoint")
       def icelandic = pathTokens["icelandic"]
       byMethod{
         delete {

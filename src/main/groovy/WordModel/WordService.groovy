@@ -47,6 +47,7 @@ class WordService {
     }
 
     Observable<Void> delete(String icelandic) {
+        log.info("Service")
         wordDbCommands.delete(icelandic)
     }
 }
