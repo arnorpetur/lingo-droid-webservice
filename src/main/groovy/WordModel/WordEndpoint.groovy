@@ -37,16 +37,14 @@ class WordEndpoint extends GroovyChainAction {
               }
     }
 
-    path(":icelandic"){
-      def icelandic = pathTokens["icelandic"]
-      byMethod{
-        delete {
-          wordService.delete(icelandic).
-            subscribe {
-              response.send()
-            }
-        }
-      }
+    post("delete"){
+      parse(jsonNode()).
+              observe().
+              flatMap { input ->
+                wordService.delete(input.get("icelandic").asText())
+              }.subscribe {
+                response.send()
+              }
     }
 
 
