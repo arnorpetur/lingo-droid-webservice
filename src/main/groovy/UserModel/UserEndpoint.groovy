@@ -27,8 +27,8 @@ class UserEndpoint extends GroovyChainAction {
                 )
               }.
               single().
-              flatMap { userName ->
-                userService.find(userName)
+              flatMap { id ->
+                userService.find(id)
               }.
               single().
               subscribe { User createdUser ->
