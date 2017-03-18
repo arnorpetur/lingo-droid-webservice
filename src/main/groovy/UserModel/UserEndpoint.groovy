@@ -52,8 +52,8 @@ class UserEndpoint extends GroovyChainAction {
               flatMap { input ->
                 userService.update(
                     input.get("id").asText(),
-                    input.get("userName").asText,
-                    input.get("score").asInt
+                    input.get("userName").asText(),
+                    input.get("score").asInt()
                   )
               }.subscribe {
                 response.send()
