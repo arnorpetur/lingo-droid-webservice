@@ -4,6 +4,7 @@ import javax.inject.Inject
 
 import static ratpack.jackson.Jackson.json
 import static ratpack.jackson.Jackson.jsonNode
+import static ratpack.rx.RxRatpack.observe
 
 class WordEndpoint extends GroovyChainAction {
 
