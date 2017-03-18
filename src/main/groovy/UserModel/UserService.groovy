@@ -47,7 +47,7 @@ class UserService {
     }
 
     Observable<Void> update(String id, String userName, int score) {
-        bookDbCommands.update(id, userName, score)
+        userDbCommands.update(id, userName, score)
     }
 
     Observable<Void> delete(String userName) {
