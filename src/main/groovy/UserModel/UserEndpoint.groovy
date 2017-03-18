@@ -36,6 +36,30 @@ class UserEndpoint extends GroovyChainAction {
               }
     }
 
+    post("delete") {
+      parse(jsonNode()).
+              observe().
+              flatMap { input ->
+                userService.delete(input.get("id").asText())
+              }.subscribe {
+                response.send()
+              }
+    }
+
+    post("update") {
+      parse(jsonNode()).
+              observe().
+              flatMap { input ->
+                userService.update(
+                    input.get("id").asText(),
+                    input.get("userName").asText,
+                    input.get("score").asInt
+                  )
+              }.subscribe {
+                response.send()
+              }
+    }
+
     all {
       byMethod {
         get {

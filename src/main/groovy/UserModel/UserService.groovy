@@ -46,11 +46,11 @@ class UserService {
         }
     }
 
-    /*Observable<Void> update(String isbn, long quantity, BigDecimal price) {
-        bookDbCommands.update(isbn, quantity, price)
-    }*/
+    Observable<Void> update(String id, String userName, int score) {
+        bookDbCommands.update(id, userName, score)
+    }
 
-    Observable<Void> delete(String icelandic) {
-        userDbCommands.delete(icelandic)
+    Observable<Void> delete(String userName) {
+        userDbCommands.delete(userName)
     }
 }
