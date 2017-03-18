@@ -32,7 +32,7 @@ class UserService {
     Observable<String> insert(String id, String userName, int score) {
         userDbCommands.insert(id, userName, score).
                 map {
-                    id
+                    userName
                 }
     }
 
