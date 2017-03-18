@@ -30,7 +30,6 @@ ratpack {
     bindInstance Service, new Service() {
       @Override
       void onStart(StartEvent event) throws Exception {
-        logger.info "Initializing RX"
         RxRatpack.initialize()
         event.registry.get(WordService).createTable()
         event.registry.get(UserService).createTable()
@@ -44,10 +43,6 @@ ratpack {
 
     get {
       render groovyMarkupTemplate("index.gtpl", title: "My Ratpack App")
-    }
-
-    get("hello") {
-      response.send "Hello from Heroku!"
     }
 
     prefix("words") {

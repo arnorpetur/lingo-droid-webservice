@@ -46,10 +46,6 @@ class WordService {
         }
     }
 
-    /*Observable<Void> update(String isbn, long quantity, BigDecimal price) {
-        bookDbCommands.update(isbn, quantity, price)
-    }*/
-
     Observable<Void> delete(String icelandic) {
         wordDbCommands.delete(icelandic)
     }
