@@ -85,7 +85,7 @@ class UserDbCommands {
             @Override
             protected rx.Observable<Integer> construct() {
                 observe(Blocking.get {
-                    sql.executeUpdate("UPDATE userinfo SET username = $userName, score = $score WHERE id = $id")
+                    sql.executeUpdate("UPDATE userinfo SET score = $score WHERE id = $id")
                 })
             }
         }.toObservable()
