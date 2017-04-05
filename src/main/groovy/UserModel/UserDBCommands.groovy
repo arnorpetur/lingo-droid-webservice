@@ -37,7 +37,7 @@ class UserDbCommands {
             protected rx.Observable<GroovyRowResult> construct() {
                 observeEach(Blocking.get {
                     sql.rows("(SELECT * FROM userinfo ORDER BY score DESC LIMIT 10) "+
-                        "UNION SELECT * FROM userinfo WHERE id='$id' ORDER BY score;")
+                        "UNION (SELECT * FROM userinfo WHERE id='$id') ORDER BY score;")
                 })
             }
 
