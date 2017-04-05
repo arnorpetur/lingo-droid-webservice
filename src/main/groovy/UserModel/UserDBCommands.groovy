@@ -25,7 +25,7 @@ class UserDbCommands {
             "id varchar(48), "+
             "username varchar(25), "+
             "score int, "+
-            "CONSTRAINT user_username UNIQUE (id, username)"+
+            "UNIQUE (id, username)"+
             ")")
     }
 
