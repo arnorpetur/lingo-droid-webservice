@@ -62,7 +62,7 @@ class UserEndpoint extends GroovyChainAction {
 
     path(":isbn") {
       def isbn = pathTokens["isbn"]
-      all {
+      get {
         byMethod {
           get {
             userService.all(isbn).
