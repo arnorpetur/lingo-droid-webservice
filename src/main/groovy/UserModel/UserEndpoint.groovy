@@ -63,7 +63,7 @@ class UserEndpoint extends GroovyChainAction {
     all {
       byMethod {
         get {
-          userService.all().
+          userService.all(input.get("id").asText()).
                   toList().
                   subscribe { List<Word> user ->
                     render json(user)

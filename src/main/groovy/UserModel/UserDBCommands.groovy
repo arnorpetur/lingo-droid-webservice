@@ -29,14 +29,15 @@ class UserDbCommands {
             ")")*/
     }
 
-    rx.Observable<GroovyRowResult> getAll() {
+    rx.Observable<GroovyRowResult> getAll(String id) {
         return new HystrixObservableCommand<GroovyRowResult>(
                 HystrixObservableCommand.Setter.withGroupKey(hystrixCommandGroupKey).andCommandKey(HystrixCommandKey.Factory.asKey("getAll"))) {
 
             @Override
             protected rx.Observable<GroovyRowResult> construct() {
                 observeEach(Blocking.get {
-                    sql.rows("SELECT id, username, score FROM userinfo ORDER BY score DESC LIMIT 10")
+                    sql.rows("(SELECT * FROM userinfo ORDER BY score DESC LIMIT 10) "+
+                        "UNION SELECT * FROM userinfo WHERE id=$id;")
                 })
             }
 

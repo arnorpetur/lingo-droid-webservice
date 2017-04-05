@@ -19,8 +19,8 @@ class UserService {
         userDbCommands.createTables()
     }
 
-    Observable<User> all() {
-        userDbCommands.getAll().map { row ->
+    Observable<User> all(String id) {
+        userDbCommands.getAll(id).map { row ->
             new User(
                     row.id,
                     row.userName,
