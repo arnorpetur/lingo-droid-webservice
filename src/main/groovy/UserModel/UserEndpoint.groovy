@@ -62,15 +62,14 @@ class UserEndpoint extends GroovyChainAction {
 
     path(":isbn") {
       def isbn = pathTokens["isbn"]
-      get {
-        byMethod {
-          get {
-            userService.all(isbn).
-                    toList().
-                    subscribe { List<Word> user ->
-                      render json(user)
-                    }
-          }
+
+      byMethod {
+        get {
+          userService.all(isbn).
+                  toList().
+                  subscribe { List<Word> user ->
+                    render json(user)
+                  }
         }
       }
     }
